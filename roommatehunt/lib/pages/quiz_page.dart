@@ -259,32 +259,28 @@
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// class MyApp extends StatelessWidget {
+//   const MyApp({Key? key}) : super(key: key);
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+//   @override
+//   Widget build(BuildContext context) {
+//     return const MaterialApp(
+//       // Hide the debug banner
+//       debugShowCheckedModeBanner: false,
+//       title: 'Tell Us Something About Yourself',
+//       home: QuizPage(),
+//     );
+//   }
+// }
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      // Hide the debug banner
-      debugShowCheckedModeBanner: false,
-      title: 'Tell Us Something About Yourself',
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class QuizPage extends StatefulWidget {
+  const QuizPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<QuizPage> createState() => _QuizPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _QuizPageState extends State<QuizPage> {
   // The inital group value
   String _selectedGender = 'male';
   String _selectedCity = 'Mumbai';

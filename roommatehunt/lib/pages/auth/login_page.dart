@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:roommatehunt/pages/auth/register_page.dart';
 import 'package:roommatehunt/widgets/widgets.dart';
 
+
 import '../../helper/helper_function.dart';
 import '../../service/auth_service.dart';
 import '../../service/database.dart';
 import '../home_page.dart';
+import '../quiz_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -46,7 +48,8 @@ class _LoginPageState extends State<LoginPage> {
                         
                         Center(
                           child: TextFormField(
-                            decoration: textInputDecoration.copyWith(
+                            decoration
+                            : textInputDecoration.copyWith(
                                 labelText: "Email",
                                 prefixIcon: Icon(
                                   Icons.email,
@@ -110,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => HomePage()),
+                                MaterialPageRoute(builder: (context) => QuizPage()),
                               );
                             },
                           ),

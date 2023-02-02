@@ -8,7 +8,7 @@ import 'package:roommatehunt/service/database.dart';
 import 'package:roommatehunt/widgets/group_tile.dart';
 import 'package:roommatehunt/widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -285,6 +285,7 @@ class _HomePageState extends State<HomePage> {
           if (snapshot.data['groups'] != null) {
             if (snapshot.data['groups'].length != 0) {
               return ListView.builder(
+
                 itemCount: snapshot.data['groups'].length,
                 itemBuilder: (context, index) {
                   int reverseIndex = snapshot.data['groups'].length - index - 1;
