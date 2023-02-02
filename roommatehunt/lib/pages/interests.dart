@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:RoommateHunt1/helper/form_card.dart';
+import 'package:roommatehunt/helper/form_card.dart';
 import '../Database/Forms.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -36,8 +36,6 @@ class _BookingState extends State<Booking> {
     return new Scaffold
       (
         resizeToAvoidBottomInset : false,
-        appBar: appBar(context),
-        endDrawer: navigationDrawer(),
         backgroundColor: Colors.purple[50],
         body: SingleChildScrollView(
           child:Column(

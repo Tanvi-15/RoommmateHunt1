@@ -8,12 +8,12 @@ class DatabaseService {
 
 
   final CollectionReference bookingCollection = FirebaseFirestore.instance
-      .collection('bookings');
+      .collection('interests');
 
   Future updateUserData(String name, String therapist, String contact, String city,
       String country) async
   {
-    return await bookingCollection.doc(uid).collection('user bookings').add(
+    return await bookingCollection.doc(uid).collection('user interests').add(
         {
           'Created':DateTime.now(),
           'Name': name,

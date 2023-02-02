@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+// import 'package:roommatehunt/Database/Database_cards.dart';
 import 'package:roommatehunt/helper/helper_function.dart';
 import 'package:roommatehunt/pages/auth/login_page.dart';
 import 'package:roommatehunt/pages/home_page.dart';
 import 'package:roommatehunt/service/auth_service.dart';
 import 'package:roommatehunt/widgets/widgets.dart';
 import 'package:flutter/gestures.dart';
+import 'package:roommatehunt/service/database.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -182,14 +184,16 @@ class _RegisterPageState extends State<RegisterPage> {
       setState(() {
         _isLoading = true;
       });
-      await authService
-          .registerUserWithEmailandPassword(fullName, email, password)
-          .then((value) async {
-          if (value == true) {
+      authService.registerUserWithEmailandPassword(fullName, email, password).then((value) async {
+        print(value);
+          if (value != null) {
+
+            DatabaseService obj = DatabaseService(uid: value.uid);
             // saving the shared preference state
             await HelperFunctions.saveUserLoggedInStatus(true);
             await HelperFunctions.saveUserEmailSF(email);
             await HelperFunctions.saveUserNameSF(fullName);
+            await obj.savingUserData(fullName, email);
             nextScreenReplace(context, const HomePage());
           } else {
             showSnackbar(context, Colors.red, value);
