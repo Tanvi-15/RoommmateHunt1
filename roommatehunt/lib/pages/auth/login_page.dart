@@ -43,38 +43,31 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        // const Text(
-                        //   "Chat app",
-                        //   style: TextStyle(
-                        //       fontSize: 40, fontWeight: FontWeight.bold),
-                        // ),
-                        // const SizedBox(height: 10),
-                        // const Text("Login now to see what they are talking!",
-                        //     style: TextStyle(
-                        //         fontSize: 15, fontWeight: FontWeight.w400)),
-                        // Image.asset("assets/login.png"),
-                        TextFormField(
-                          decoration: textInputDecoration.copyWith(
-                              labelText: "Email",
-                              prefixIcon: Icon(
-                                Icons.email,
-                                color: Theme.of(context).primaryColor,
-                              )),
-                          onChanged: (val) {
-                            setState(() {
-                              email = val;
-                              // print(val);    
-                            });
-                          },
-
-                          // check tha validation
-                          validator: (val) {
-                            return RegExp(
-                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(val!)
-                                ? null
-                                : "Please enter a valid email";
-                          },
+                        
+                        Center(
+                          child: TextFormField(
+                            decoration: textInputDecoration.copyWith(
+                                labelText: "Email",
+                                prefixIcon: Icon(
+                                  Icons.email,
+                                  color: Theme.of(context).primaryColor,
+                                )),
+                            onChanged: (val) {
+                              setState(() {
+                                email = val;
+                                // print(val);    
+                              });
+                            },
+                        
+                            // check tha validation
+                            validator: (val) {
+                              return RegExp(
+                                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                      .hasMatch(val!)
+                                  ? null
+                                  : "Please enter a valid email";
+                            },
+                          ),
                         ),
                         const SizedBox(height: 15),
                         TextFormField(
