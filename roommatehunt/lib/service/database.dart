@@ -133,4 +133,22 @@ class DatabaseService {
       "recentMessageTime": chatMessageData['time'].toString(),
     });
   }
+
+  final CollectionReference bookingCollection = FirebaseFirestore.instance
+      .collection('interests');
+
+  Future updateUserData(String gender, String city, String locality,String status,String nature, String design, String budget) async
+  {
+    return await bookingCollection.doc(uid).collection('user interests').add(
+        {
+          'gender': gender,
+          'city': city,
+          'locality': locality,
+          'status': status,
+          'nature': nature,
+          'design': design,
+          'budget': budget
+        }
+    );
+  }
 }

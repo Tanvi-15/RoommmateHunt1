@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import '../service/database.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
@@ -9,6 +11,7 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   // The inital group value
+  User? user = FirebaseAuth.instance.currentUser!;
   String _selectedGender = 'male';
   String _selectedCity = 'Mumbai';
   String _selectedStatus = 'College';
@@ -17,7 +20,6 @@ class _QuizPageState extends State<QuizPage> {
   String _selecteds = 'silent';
   final budgetController = TextEditingController();
   final areaController = TextEditingController();
-
   final _formKey = GlobalKey<FormState>();
   final _textController = TextEditingController();
 
@@ -210,7 +212,7 @@ class _QuizPageState extends State<QuizPage> {
                       });
                     },
                   ),
-                  title: const Text('Minimilistic'),
+                  title: const Text('Minimalistic'),
                 ),
                 const SizedBox(height: 25),
                 const Text('Please let us know your Budget:'),
@@ -261,13 +263,40 @@ class _QuizPageState extends State<QuizPage> {
                   title: const Text('3'),
                 ),
                 const SizedBox(height: 25),
-                // ElevatedButton(onPressed: (){
-                //   submit();
-                // }, 
-                // child: Text("Submit"))
+                MaterialButton(
+                  onPressed: ()
+                {
+                     final String gender = _selectedGender;
+                     final String city = _selectedCity;
+                     final String locality = areaController.text.trim();
+                     final String status = _selectedStatus;
+                     final String nature =_selecteds;
+                     final String design =_selecteda;
+                     final String budget =budgetController.text.trim();
+                     void add() async
+                          {
+                            await DatabaseService(uid: user!.uid)
+                                .updateUserData(
+                                gender, city, locality, status, nature, design, budget);
+                          };                  
+                          final snackBar = SnackBar(
+                            content: const Text(
+                                'Your interests were recorded'),
+                            action: SnackBarAction(
+                              label: 'Alert',
+                              onPressed: () {
+                                // Some code to undo the change.
+                              },
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          add();
+                          //Navigator.pushNamed(context, '/bookings');
+                        },
+                  // submit();
+                child: Text("Submit"))
               ],
             ),
-
         ),
       ),
     );
