@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../Database/Forms.dart';
 import 'package:intl/intl.dart';
 
+import '../pages/home_page.dart';
+import '../widgets/widgets.dart';
+
 class FormCard extends StatelessWidget {
   final Forms _forms;
   FormCard(this._forms);
@@ -11,10 +14,10 @@ class FormCard extends StatelessWidget {
     return Container(
       child:GestureDetector(
           onTap: () {
-            print("Click event on Container");
+            nextScreen(context, const HomePage());
           },
       child:Card(
-          color:Colors.purple[100],
+          color:Colors.blue,
           margin: EdgeInsets.all(15),
           child: SizedBox(
               width: 50,
@@ -25,39 +28,60 @@ class FormCard extends StatelessWidget {
                   children:[
                     Row(
                       children:[
-                        Text('Gender:   '+_forms.gender)
+                        Text('Gender:   '+_forms.gender,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),)
                       ],
                     ),
                     Row(
                       children:[
-                        Text('City:   '+_forms.city)
+                        Text('City:   '+_forms.city,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ))
                       ],
                     ),
                     Row(
                       children:[
-                        Text('Locality:   '+_forms.locality)
+                        Text('Locality:   '+_forms.locality,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ))
                       ],
                     ),
                     Row(
                       children:[
-                        Text('Status:   '+_forms.status)
+                        Text('Status:   '+_forms.status,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ))
                       ],
                     ),
                     Row(
                       children:[
-                        Text('Nature:   '+_forms.nature)
+                        Text('Nature:   '+_forms.nature,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ))
                       ],
                     ),
                      Row(
                       children:[
-                        Text('Design:   '+_forms.nature)
+                        Text('Design:   '+_forms.nature,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ))
                       ],
                     ),
                     Row(
                       children:[
                         Padding(
                             padding: const EdgeInsets.only(bottom: 10.0),
-                            child:Text('Budget: '+_forms.budget)
+                            child:Text('Budget: '+_forms.budget,
+                            style: TextStyle(
+                          color: Colors.white,
+                        ))
                         ),
                       ],
                     )

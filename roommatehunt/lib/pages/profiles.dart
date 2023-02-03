@@ -32,19 +32,19 @@ class _ProfilesState extends State<Profiles> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold
+    return Scaffold
       (
         resizeToAvoidBottomInset : false,
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
             child:Column(
                 children: <Widget>[
-                SizedBox(height:30),
+                const SizedBox(height:40),
             Text(
               'Profiles',
               style: TextStyle(
                 fontFamily: 'Parisienne',
-                color: Colors.purple[700],
+                color: Colors.blue[700],
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),

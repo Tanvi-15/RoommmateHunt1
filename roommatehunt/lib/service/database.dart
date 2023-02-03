@@ -137,10 +137,14 @@ class DatabaseService {
   final CollectionReference bookingCollection = FirebaseFirestore.instance
       .collection('interests');
 
-  Future updateUserData(String gender, String city, String locality,String status,String nature, String design, String budget) async
+  Future updateUserData(String name,String phone,String food,String alcohol,String gender, String city, String locality,String status,String nature, String design, String budget) async
   {
     return await bookingCollection.doc(uid).collection('user interests').add(
         {
+          'name':name,
+          'phone':phone,
+          'food':food,
+          'alcohol':alcohol,
           'gender': gender,
           'city': city,
           'locality': locality,

@@ -19,10 +19,15 @@ class _QuizPageState extends State<QuizPage> {
   String _selectedNo = '1';
   String _selecteda = 'aesthetic';
   String _selecteds = 'silent';
+  String _selectedf = 'Veg';
+  String _selectedalc = 'Alcoholic';
   final budgetController = TextEditingController();
   final areaController = TextEditingController();
+  final nameController = TextEditingController();
+  final phoneController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final _textController = TextEditingController();
+  bool? check1 = false, check2 = true, check3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,30 +45,89 @@ class _QuizPageState extends State<QuizPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Please let us know your gender:'),
+                const Text('Please let us know your name:'),
+                TextFormField(
+                  controller: nameController,
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration:InputDecoration(
+                    labelText:'',
+                    hintText:'Your Name',
+                  ),
+                ),
+                const SizedBox(height: 25),
+                const Text('Please let us know your phone number:'),
+                TextFormField(
+                  controller: phoneController,
+                  keyboardType: TextInputType.visiblePassword,
+                  decoration:InputDecoration(
+                    labelText:'',
+                    hintText:'Your Phone Number',
+                  ),
+                ),
+                const SizedBox(height: 25),
+                const Text('Please let us know your food preferences:'),
                 ListTile(
                   leading: Radio<String>(
-                    value: 'male',
-                    groupValue: _selectedGender,
+                    value: 'Veg',
+                    groupValue: _selectedf,
                     onChanged: (value) {
                       setState(() {
                         _selectedGender = value!;
                       });
                     },
                   ),
-                  title: const Text('Male'),
+                  title: const Text('Veg'),
                 ),
                 ListTile(
                   leading: Radio<String>(
-                    value: 'female',
-                    groupValue: _selectedGender,
+                    value: 'Non Veg',
+                    groupValue: _selectedf,
                     onChanged: (value) {
                       setState(() {
                         _selectedGender = value!;
                       });
                     },
                   ),
-                  title: const Text('Female'),
+                  title: const Text('Non Veg'),
+                ),
+                const SizedBox(height: 25),
+                const SizedBox(height: 25),
+                const Text('Are you a:'),
+                ListTile(
+                  leading: Radio<String>(
+                    value: 'Alcoholic',
+                    groupValue: _selectedalc,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
+                  ),
+                  title: const Text('Alcoholic'),
+                ),
+                ListTile(
+                  leading: Radio<String>(
+                    value: 'Smoker',
+                    groupValue: _selectedalc,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
+                  ),
+                  title: const Text('Smoking'),
+                ),
+                ListTile(
+                  leading: Radio<String>(
+                    value: 'None',
+                    groupValue: _selectedalc,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedGender = value!;
+                      });
+                    },
+                  ),
+                  title: const Text('None'),
                 ),
                 const SizedBox(height: 25),
                 const Text('Please let us know your city:'),
@@ -267,6 +331,10 @@ class _QuizPageState extends State<QuizPage> {
                 MaterialButton(
                   onPressed: ()
                 {
+                     final String name = nameController.text.trim();
+                     final String phone = phoneController.text.trim();
+                     final String food = _selectedf;
+                     final String alcohol = _selectedalc;
                      final String gender = _selectedGender;
                      final String city = _selectedCity;
                      final String locality = areaController.text.trim();
@@ -278,7 +346,7 @@ class _QuizPageState extends State<QuizPage> {
                           {
                             await DatabaseService(uid: user!.uid)
                                 .updateUserData(
-                                gender, city, locality, status, nature, design, budget);
+                                name,phone,food,alcohol,gender, city, locality, status, nature, design, budget);
                           };                  
                           final snackBar = SnackBar(
                             content: const Text(
@@ -305,5 +373,4 @@ class _QuizPageState extends State<QuizPage> {
       ),
     );
   }
-} 
-      
+}
