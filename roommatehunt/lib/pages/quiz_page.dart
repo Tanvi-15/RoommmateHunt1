@@ -31,7 +31,7 @@ class _QuizPageState extends State<QuizPage> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          'Tell Us Something About Yourself',
+          'Help us know you',
         ),
       ),
       body: SingleChildScrollView(

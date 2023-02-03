@@ -9,6 +9,10 @@ class FormCard extends StatelessWidget {
   Widget build(BuildContext context)
   {
     return Container(
+      child:GestureDetector(
+          onTap: () {
+            print("Click event on Container");
+          },
       child:Card(
           color:Colors.purple[100],
           margin: EdgeInsets.all(15),
@@ -61,6 +65,7 @@ class FormCard extends StatelessWidget {
                 ),
               )
           )
+      ),
       ),
     );
   }

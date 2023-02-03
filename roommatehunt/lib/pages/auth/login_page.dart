@@ -38,38 +38,71 @@ class _LoginPageState extends State<LoginPage> {
             : SingleChildScrollView(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 150),
                 child: Form(
                     key: formKey,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
+                      Image.asset("assets/images/ppl.png"),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10,15,10,0),
+                        child: Container(
+                          child: const Text("Welcome to",
+                            style: TextStyle(
+                            fontFamily: 'Playfair',
+                            fontSize: 24,
+                            color: Colors.blue,
+                          ), 
+                          textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(10,0,10,10),
+                        child: Container(
+                          child: const Text("Roommate Hunt",
+                            style: TextStyle(
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.blue,
+                          ), 
+                          textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                      
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0.0,10.0,0.0,0.0),
+                          child: Center(
                         
-                        Center(
-                          child: TextFormField(
-                            decoration
-                            : textInputDecoration.copyWith(
-                                labelText: "Email",
-                                prefixIcon: Icon(
-                                  Icons.email,
-                                  color: Theme.of(context).primaryColor,
-                                )),
-                            onChanged: (val) {
-                              setState(() {
-                                email = val;
-                                // print(val);    
-                              });
-                            },
-                        
-                            // check tha validation
-                            validator: (val) {
-                              return RegExp(
-                                          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                      .hasMatch(val!)
-                                  ? null
-                                  : "Please enter a valid email";
-                            },
+                            child: TextFormField(
+                              
+                              decoration
+                              : textInputDecoration.copyWith(
+                                  labelText: "Email",
+                                  prefixIcon: Icon(
+                                    Icons.email,
+                                    color: Theme.of(context).primaryColor,
+                                  )),
+                              onChanged: (val) {
+                                setState(() {
+                                  email = val;
+                                  // print(val);    
+                                });
+                              },
+                          
+                              // check tha validation
+                              validator: (val) {
+                                return RegExp(
+                                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        .hasMatch(val!)
+                                    ? null
+                                    : "Please enter a valid email";
+                              },
+                            ),
                           ),
                         ),
                         const SizedBox(height: 15),

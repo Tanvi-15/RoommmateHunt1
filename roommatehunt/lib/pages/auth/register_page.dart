@@ -28,8 +28,9 @@ class _RegisterPageState extends State<RegisterPage> {
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(
-                  color: Theme.of(context).primaryColor))
+                  color: Theme.of(context).primaryColor),)
           : SingleChildScrollView(
+            
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 80),
@@ -45,17 +46,21 @@ class _RegisterPageState extends State<RegisterPage> {
                             "Welcome to Roommate hunt!",
                             style: TextStyle(
                                 fontSize: 40, fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                           ),
                         ),
-                        const SizedBox(height: 10),
+                        // const SizedBox(height: 10),
+                        
+                        Image.asset("assets/images/ppl.png"),
                         const Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: EdgeInsets.fromLTRB(8.0,10,8,3),
                           child: Text(
                               "Create your account now to find your dream roommmate",
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w400)),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center,),
                         ),
-                        // Image.asset("assets/login.png"),
+                        
                         Padding(
                           padding: const EdgeInsets.fromLTRB(10.0,10.0,10.0,0.0),
                           child: TextFormField(
