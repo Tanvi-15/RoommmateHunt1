@@ -90,8 +90,7 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                   title: const Text('Non Veg'),
                 ),
-                const SizedBox(height: 25),
-                const SizedBox(height: 25),
+                const SizedBox(height: 25),            
                 const Text('Are you a:'),
                 ListTile(
                   leading: Radio<String>(
@@ -99,7 +98,7 @@ class _QuizPageState extends State<QuizPage> {
                     groupValue: _selectedalc,
                     onChanged: (value) {
                       setState(() {
-                        _selectedGender = value!;
+                        _selectedalc = value!;
                       });
                     },
                   ),
@@ -111,7 +110,7 @@ class _QuizPageState extends State<QuizPage> {
                     groupValue: _selectedalc,
                     onChanged: (value) {
                       setState(() {
-                        _selectedGender = value!;
+                        _selectedalc = value!;
                       });
                     },
                   ),
@@ -123,7 +122,7 @@ class _QuizPageState extends State<QuizPage> {
                     groupValue: _selectedalc,
                     onChanged: (value) {
                       setState(() {
-                        _selectedGender = value!;
+                        _selectedalc = value!;
                       });
                     },
                   ),

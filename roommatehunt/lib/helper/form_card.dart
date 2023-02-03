@@ -28,6 +28,38 @@ class FormCard extends StatelessWidget {
                   children:[
                     Row(
                       children:[
+                        Text('Name:   '+_forms.name,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),)
+                      ],
+                    ),
+                    Row(
+                      children:[
+                        Text('Phone:   '+_forms.phone,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),)
+                      ],
+                    ),
+                    Row(
+                      children:[
+                        Text('Food:   '+_forms.food,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),)
+                      ],
+                    ),
+                     Row(
+                      children:[
+                        Text('Alcoholic:   '+_forms.alcohol,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),)
+                      ],
+                    ),
+                    Row(
+                      children:[
                         Text('Gender:   '+_forms.gender,
                         style: TextStyle(
                           color: Colors.white,
