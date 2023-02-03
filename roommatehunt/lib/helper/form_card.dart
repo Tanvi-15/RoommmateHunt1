@@ -14,21 +14,46 @@ class FormCard extends StatelessWidget {
           margin: EdgeInsets.all(15),
           child: SizedBox(
               width: 50,
-              height: 64,
+              height: 158,
               child:Padding(
                 padding:const EdgeInsets.all(11.0),
                 child:Column(
                   children:[
                     Row(
                       children:[
-                        Text('Created:   '+DateFormat("MM-dd-yyyy").format(_forms.Created!).toString()),
+                        Text('Gender:   '+_forms.gender)
+                      ],
+                    ),
+                    Row(
+                      children:[
+                        Text('City:   '+_forms.city)
+                      ],
+                    ),
+                    Row(
+                      children:[
+                        Text('Locality:   '+_forms.locality)
+                      ],
+                    ),
+                    Row(
+                      children:[
+                        Text('Status:   '+_forms.status)
+                      ],
+                    ),
+                    Row(
+                      children:[
+                        Text('Nature:   '+_forms.nature)
+                      ],
+                    ),
+                     Row(
+                      children:[
+                        Text('Design:   '+_forms.nature)
                       ],
                     ),
                     Row(
                       children:[
                         Padding(
                             padding: const EdgeInsets.only(bottom: 10.0),
-                            child:Text('Therapist: '+_forms.Therapist)
+                            child:Text('Budget: '+_forms.budget)
                         ),
                       ],
                     )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../service/database.dart';
+import 'profiles.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({Key? key}) : super(key: key);
@@ -208,7 +209,7 @@ class _QuizPageState extends State<QuizPage> {
                     groupValue: _selecteda,
                     onChanged: (value) {
                       setState(() {
-                        _selecteds = value!;
+                        _selecteda = value!;
                       });
                     },
                   ),
@@ -291,7 +292,10 @@ class _QuizPageState extends State<QuizPage> {
                           );
                           ScaffoldMessenger.of(context).showSnackBar(snackBar);
                           add();
-                          //Navigator.pushNamed(context, '/bookings');
+                           Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Profiles()),
+                          );
                         },
                   // submit();
                 child: Text("Submit"))
